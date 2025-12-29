@@ -8,6 +8,7 @@ public class StarManager : MonoBehaviour
     [SerializeField] private float loseStarCooldown = 1.0f;
 
     private int currentStars;
+    public int CurrentStars => currentStars;
     private float lastLoseTime = -999f;
 
     private void Start()

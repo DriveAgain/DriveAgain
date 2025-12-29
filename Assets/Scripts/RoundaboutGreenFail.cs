@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OffRoadDetector : MonoBehaviour
+public class RoundaboutGreenFail : MonoBehaviour
 {
     private FailManager fail;
 
@@ -11,9 +11,10 @@ public class OffRoadDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        // רק אם זה הקדימה של הרכב
+        if (!other.CompareTag("PlayerFront")) return;
 
         if (fail != null)
-            fail.Fail("OffRoad");
+            fail.Fail("Stuck in roundabout (hit green)");
     }
 }

@@ -11,8 +11,14 @@ public class FinishLineLoader : MonoBehaviour
         if (other.gameObject.name != carObjectName)
             return;
 
- 
-        // --- מעבר סצנה ---
+        // לשמור כוכבים ל-SuccessScene
+        StarManager sm = FindFirstObjectByType<StarManager>();
+        if (sm != null)
+        {
+            GameState.Stars = sm.CurrentStars;
+            GameState.Reward = GameState.Stars * 100;
+        }
+
         SceneManager.LoadScene(nextSceneName);
     }
 }
