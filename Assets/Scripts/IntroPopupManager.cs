@@ -39,9 +39,9 @@ public class IntroPopupManager : MonoBehaviour
             introImage.sprite = yieldSignSprite;
 
             introText.text =
-                "תמרור \"תן זכות קדימה\"\n\n" +
+                "תמרור \"עצור\"\n\n" +
                 "כאשר מופיע תמרור זה,\n" +
-                "עליך לתת זכות קדימה לרכבים החוצים את הצומת.";
+                "עליך לעצור עצירה מלאה לפני כניסה לצומת.";
         }
         else if (step == 2)
         {
