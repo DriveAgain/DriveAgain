@@ -15,8 +15,9 @@ public class TutorialIntro : MonoBehaviour
         // 2 הודעות אחת אחרי השנייה עם OK
         popup.ShowMessages(new string[]
         {
-            "Real life reminder:\nRight side = gas\nLeft side = brakes",
-            "The speed limit is up to 50 km/h."
+            "תזכורת מהחיים האמיתיים:\nצד ימין = גז\nצד שמאל = בלם",
+            "המהירות המותרת היא עד 05 קמש",
+            "↑ – גז\n ↓ – ברקס \n → – פנייה ימינה \n ← -פנייה שמאלה"
         });
     }
 }
