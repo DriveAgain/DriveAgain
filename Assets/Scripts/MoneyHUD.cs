@@ -5,7 +5,7 @@ public class MoneyHUD : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI moneyText;
 
-    public static int Money = 0; // בינתיים. בהמשך נעשה איסוף מטבעות.
+    public static int Money = 0; 
 
     void Update()
     {

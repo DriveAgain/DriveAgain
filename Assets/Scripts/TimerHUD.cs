@@ -4,8 +4,9 @@ using TMPro;
 public class TimerHUD : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
-
     private float t;
+
+    public int TotalSeconds => Mathf.FloorToInt(t);
 
     void Update()
     {

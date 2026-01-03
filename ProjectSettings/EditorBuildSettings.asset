@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MediumScene.unity
     guid: e42a30675543bab4b8e0aba383f1c182
+  - enabled: 1
+    path: Assets/Scenes/EasyScenes.unity
+    guid: b3c4da6f25ca30e4cbd7843dd9d73991
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
