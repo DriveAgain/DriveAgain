@@ -19,6 +19,6 @@ public class SuccessUI : MonoBehaviour
         int s = GameState.TotalSeconds % 60;
 
         if (timeText != null)
-            timeText.text = $"זמן: {m:00}:{s:00}";
+            timeText.text = $" {m:00}:{s:00}";
     }
 }

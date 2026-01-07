@@ -854,8 +854,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You are over 50 km/h!
-  m_isRightToLeft: 0
+  m_text: "\u05E2\u05D1\u05E8\u05EA \u05D0\u05EA \u05D405 \u05E7\u05DE\u05E9 \u05E0\u05D0
+    \u05DC\u05D4\u05D0\u05D8!!"
+  m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
@@ -888,7 +889,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 5
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -903,7 +904,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -950,7 +951,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 80, y: 0}
-  m_SizeDelta: {x: 800, y: 100}
+  m_SizeDelta: {x: 1500, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &176175855
 GameObject:
@@ -3611,6 +3612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FinishLineLoader
   nextSceneName: SuccessScene
   carObjectName: car
+  completedLevelIndex: 0
 --- !u!65 &970733903
 BoxCollider:
   m_ObjectHideFlags: 0
