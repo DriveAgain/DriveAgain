@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - PlayerFront
+  - road
   layers:
   - Default
   - TransparentFX

@@ -161,7 +161,7 @@ public class OpeningLoginManager : MonoBehaviour
         {
             // אם נכשל - לא תמיד "שם תפוס": יכול להיות גם פורמט לא תקין/בעיה אחרת.
             // אבל רוב הזמן זה "כבר קיים", אז נציג הודעה כללית + נרמז ששם תפוס.
-            ShowRegisterError("לא הצלחתי להירשם. יכול להיות שהשם תפוס או לא תקין. נסה שם אחר.");
+            ShowRegisterError("לא הצלחתי להירשם, יכול להיות שהשם תפוס או לא תקין. נסה שם אחר");
         }
     }
 
@@ -271,7 +271,7 @@ public class OpeningLoginManager : MonoBehaviour
     {
         if (loginStatusText == null) return;
         loginStatusText.text = msg;
-        loginStatusText.color = Color.white;
+        loginStatusText.color = Color.black;
     }
 
     private void ShowLoginError(string msg)
@@ -285,14 +285,14 @@ public class OpeningLoginManager : MonoBehaviour
     {
         if (loginStatusText == null) return;
         loginStatusText.text = "";
-        loginStatusText.color = Color.white;
+        loginStatusText.color = Color.black;
     }
 
     private void ShowRegisterStatus(string msg)
     {
         if (registerStatusText == null) return;
         registerStatusText.text = msg;
-        registerStatusText.color = Color.white;
+        registerStatusText.color = Color.black;
     }
 
     private void ShowRegisterError(string msg)
@@ -306,7 +306,7 @@ public class OpeningLoginManager : MonoBehaviour
     {
         if (registerStatusText == null) return;
         registerStatusText.text = "";
-        registerStatusText.color = Color.white;
+        registerStatusText.color = Color.black;
     }
 
     // =========================
@@ -336,7 +336,7 @@ public class OpeningLoginManager : MonoBehaviour
 
             if (!ok)
             {
-                error = "מותר רק אותיות/מספרים ותווים: . _ - @";
+                error = "מותר רק אותיות באנגלית , מספרים או תווים";
                 return false;
             }
         }
