@@ -8,20 +8,33 @@ public class SuccessCloudSaver : MonoBehaviour
     [SerializeField] private string levelSelectSceneName = "LevelSelectScene";
 
     // זה מה שתחברי לכפתור
-    public async void SaveThenGoToLevels()
-    {
-        try
-        {
-            await SaveNow(); // קודם לשמור
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("SaveThenGoToLevels failed: " + e.Message);
-        }
+ public async void SaveThenGoToLevels()
+{
+    // אורח: לא שומרים לענן, רק פותחים שלב הבא בזיכרון
+   if (GuestSession.IsGuest)
+{
+    int nextUnlock = Mathf.Clamp(GameState.CompletedLevelIndex + 1, 0, 3);
+    GuestSession.UnlockedIndex = Mathf.Max(GuestSession.UnlockedIndex, nextUnlock);
 
-        // ואז לעבור סצנה
-        SceneManager.LoadScene(levelSelectSceneName);
+    // ✅ כסף לאורח נשמר בזיכרון (במקום ענן)
+    GuestSession.Money += GameState.Reward;
+
+    SceneManager.LoadScene(levelSelectSceneName);
+    return;
+}
+
+    // משתמש רגיל: ענן כרגיל
+    try
+    {
+        await SaveNow();
     }
+    catch (Exception e)
+    {
+        Debug.LogError("SaveThenGoToLevels failed: " + e.Message);
+    }
+
+    SceneManager.LoadScene(levelSelectSceneName);
+}
 
     private async Task SaveNow()
     {

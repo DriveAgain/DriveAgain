@@ -1,10 +1,16 @@
+using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class StopRule : MonoBehaviour
 {
     [Header("Stop settings")]
-    [SerializeField] private float stopSpeedKmh = 1.0f;     // כמה איטי נחשב "עצירה"
-    [SerializeField] private float requiredStopTime = 0.3f; // כמה זמן צריך להיות כמעט 0
+    [SerializeField] private float stopSpeedKmh = 1.0f;
+    [SerializeField] private float requiredStopTime = 0.3f;
+
+    [Header("Warning UI")]
+    [SerializeField] private GameObject warningUI; // <-- לגרור את האובייקט של הטקסט
+    [SerializeField] private float warningSeconds = 2f;
 
     private StarManager stars;
     private Rigidbody playerRb;
@@ -15,15 +21,16 @@ public class StopRule : MonoBehaviour
     private void Start()
     {
         stars = FindFirstObjectByType<StarManager>();
+
+        if (warningUI != null)
+            warningUI.SetActive(false);
     }
 
-    // נקרא ע"י StopZone כשנכנסים אליו
     public void SetPlayerRigidbody(Rigidbody rb)
     {
         playerRb = rb;
     }
 
-    // נקרא ע"י StopZone בזמן ששוהים עליו
     public void UpdateStopCheck()
     {
         if (playerRb == null || hasStopped) return;
@@ -42,7 +49,6 @@ public class StopRule : MonoBehaviour
         }
     }
 
-    // כשנכנסים לצומת
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
@@ -50,10 +56,24 @@ public class StopRule : MonoBehaviour
         if (!hasStopped)
         {
             if (stars != null) stars.LoseStar("No Stop");
+            ShowWarning();
         }
 
-        // מאפסים לפעם הבאה (אם יהיו עוד צמתים)
         hasStopped = false;
         stoppedTimer = 0f;
+    }
+
+    private void ShowWarning()
+    {
+        if (warningUI == null) return;
+        StopAllCoroutines();
+        StartCoroutine(WarningRoutine());
+    }
+
+    private IEnumerator WarningRoutine()
+    {
+        warningUI.SetActive(true);
+        yield return new WaitForSeconds(warningSeconds);
+        warningUI.SetActive(false);
     }
 }

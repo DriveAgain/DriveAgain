@@ -48,6 +48,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.8f1-x86_64\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PenaltyTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Player\CarController.cs" />
     <Compile Include="Assets\Scripts\NewEmptyCSharpScript.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Assets\Scripts\SuccessUI.cs" />
     <Compile Include="Assets\Scripts\SpeedHUD.cs" />
     <Compile Include="Assets\UI\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
+    <Compile Include="Assets\Scripts\HelpPanelUI.cs" />
     <Compile Include="Assets\Scripts\MoneyHUD.cs" />
     <Compile Include="Assets\Scripts\TimerHUD.cs" />
     <Compile Include="Assets\Scripts\StarManager.cs" />
@@ -122,10 +124,12 @@
     <Compile Include="Assets\Scripts\RouteChoiceUI.cs" />
     <Compile Include="Assets\Scripts\OffRoadDetector.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\Scripts\MuteButton.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\IntroPopupManagerEsay.cs" />
     <Compile Include="Assets\Scripts\NpcCarCrossing.cs" />
     <Compile Include="Assets\Scripts\LaodEasy.cs" />
+    <Compile Include="Assets\Scripts\GuestSession.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
   </ItemGroup>
   <ItemGroup>

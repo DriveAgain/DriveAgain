@@ -13,7 +13,7 @@ public class SuccessUI : MonoBehaviour
             starsText.text = GameState.Stars + "/3";
 
         if (rewardText != null)
-            rewardText.text = GameState.Reward;
+            rewardText.text = GameState.Reward +"";
 
         int m = GameState.TotalSeconds / 60;
         int s = GameState.TotalSeconds % 60;

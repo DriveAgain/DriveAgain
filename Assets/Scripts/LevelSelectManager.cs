@@ -35,19 +35,28 @@ public class LevelSelectManager : MonoBehaviour
     }
 
     public async Task RefreshUI()
+{
+    // ✅ אורח: לא ענן, לא Auth, פשוט UI לפי זיכרון
+    if (GuestSession.IsGuest)
     {
-        if (UnityServices.State != ServicesInitializationState.Initialized)
-            await UnityServices.InitializeAsync();
-
-        if (!AuthenticationService.Instance.IsSignedIn)
-        {
-            Debug.LogWarning("Not signed in - cannot load Cloud Save. Returning with defaults.");
-            ApplyUI(unlockedLevel: 0, money: 0);
-            return;
-        }
-
-        await LoadAndApply();
+       ApplyUI(unlockedLevel: GuestSession.UnlockedIndex, money: GuestSession.Money);
+        return;
     }
+
+    // ✅ משתמש רגיל: הענן כרגיל
+    if (UnityServices.State != ServicesInitializationState.Initialized)
+        await UnityServices.InitializeAsync();
+
+    if (!AuthenticationService.Instance.IsSignedIn)
+    {
+        Debug.LogWarning("Not signed in - cannot load Cloud Save. Returning with defaults.");
+        ApplyUI(unlockedLevel: 0, money: 0);
+        return;
+    }
+
+    await LoadAndApply();
+}
+
 
     private async Task LoadAndApply()
     {

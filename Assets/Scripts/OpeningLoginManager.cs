@@ -302,6 +302,13 @@ public class OpeningLoginManager : MonoBehaviour
         registerStatusText.color = Color.red;
     }
 
+  public void OnGuestClicked()
+{
+    GuestSession.StartGuest();          // ✅ מתחיל סשן אורח בזיכרון
+    SceneManager.LoadScene(nextSceneName);
+}
+
+
     private void ClearRegisterStatus()
     {
         if (registerStatusText == null) return;

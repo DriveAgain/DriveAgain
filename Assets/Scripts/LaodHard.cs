@@ -5,6 +5,6 @@ public class LaodHard: MonoBehaviour
 {
      public void Load()
     {
-        SceneManager.LoadScene("HardScenes");
+        SceneManager.LoadScene("HardScene");
     }
 }
