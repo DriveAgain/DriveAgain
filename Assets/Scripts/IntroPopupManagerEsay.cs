@@ -1,28 +1,79 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
-public class IntroPopupManagerEasy : MonoBehaviour
+public class IntroPopupEasy : MonoBehaviour
 {
-    [SerializeField] private PopupManager popup;
+    [Header("UI")]
+    [SerializeField] private GameObject panel;
+    [SerializeField] private TextMeshProUGUI messageText;
+    [SerializeField] private Button okButton;
+    [SerializeField] private Image introImage; // ה-Image ששמת בפאנל
 
-    void Awake()
+    [Header("Sprites (Easy)")]
+    [SerializeField] private Sprite speed50Sprite;   // תמרור 50
+    [SerializeField] private Sprite enterFromRightSprite; // כניסה מצד ימין
+    [SerializeField] private Sprite navigationkeys;
+
+    private int step = 0;
+
+    private void Awake()
     {
-        if (popup == null)
-            popup = FindFirstObjectByType<PopupManager>();
+        okButton.onClick.AddListener(OnOkClicked);
+        panel.SetActive(false);
+        if (introImage != null) introImage.gameObject.SetActive(false);
     }
 
-    void Start()
+    private void Start()
     {
-        if (popup == null)
-        {
-            Debug.LogError("IntroPopupManagerEasy: PopupManager not found!");
-            return;
-        }
+        Time.timeScale = 0f;
+        panel.SetActive(true);
+        ShowStep();
+    }
 
-        popup.ShowMessages(new string[]
+    private void OnOkClicked()
+    {
+        step++;
+        ShowStep();
+    }
+
+    private void ShowStep()
+    {
+
+        if (step == 0)
         {
-            "המהירות המותרת היא עד 05 קמ\"ש",
-            "תזכורת:\n↑ – גז\n↓ – ברקס\n→ – פנייה ימינה\n← – פנייה שמאלה",
-            "הכניסה לכיכר היא מצד ימין בלבד"
-        });
+            messageText.text = "המהירות המותרת היא עד 05 קמ\"ש";
+            ShowImage(speed50Sprite);
+        }
+        else if (step == 1)
+        {
+            messageText.text =
+                "תזכורת:\n" +
+                "↑ – גז\n" +
+                "↓ – ברקס\n" +
+                "→ – פנייה ימינה\n" +
+                "← – פנייה שמאלה";
+            ShowImage(navigationkeys);
+        }
+        else if (step == 2)
+        {
+            messageText.text = "הכניסה לכיכר היא מצד ימין בלבד";
+             ShowImage(enterFromRightSprite);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            panel.SetActive(false);
+        }
+    }
+
+    private void ShowImage(Sprite sprite)
+    {
+        if (introImage == null) return;
+        if (sprite == null) return;
+
+        introImage.gameObject.SetActive(true);
+        introImage.sprite = sprite;
+        introImage.preserveAspect = true;
     }
 }

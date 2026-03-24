@@ -55,6 +55,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\NpcCarTrigger.cs" />
+    <Compile Include="Assets\Scripts\ShopManager.cs" />
     <Compile Include="Assets\UI\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\StopZone StopZone.cs" />
     <Compile Include="Assets\Scripts\FailManager.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Assets\Scripts\SpeedHUD.cs" />
     <Compile Include="Assets\UI\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
     <Compile Include="Assets\Scripts\HelpPanelUI.cs" />
+    <Compile Include="Assets\Scripts\BackToMenu.cs" />
     <Compile Include="Assets\Scripts\MoneyHUD.cs" />
     <Compile Include="Assets\Scripts\TimerHUD.cs" />
     <Compile Include="Assets\Scripts\StarManager.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\UnityServicesInitializer.cs" />
+    <Compile Include="Assets\Scripts\CarModelSelector.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
@@ -128,6 +131,7 @@
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\IntroPopupManagerEsay.cs" />
     <Compile Include="Assets\Scripts\NpcCarCrossing.cs" />
+    <Compile Include="Assets\Scripts\ShopSceneLoader.cs" />
     <Compile Include="Assets\Scripts\LaodEasy.cs" />
     <Compile Include="Assets\Scripts\GuestSession.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
