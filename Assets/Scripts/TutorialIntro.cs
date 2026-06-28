@@ -13,6 +13,7 @@ public class TutorialIntro : MonoBehaviour
     [Header("Sprites")]
     [SerializeField] private Sprite speed50Sprite;
    [SerializeField] private Sprite navigationkeys;
+   [SerializeField] private Sprite imegeFainle ;
 
     private int step = 0;
 
@@ -55,6 +56,12 @@ public class TutorialIntro : MonoBehaviour
                 "← – פנייה שמאלה";
             ShowImage(navigationkeys);
         
+        }
+        else if (step == 2)
+        {
+            messageText.text = "סע על הכביש עד נקודת הסיום\n"+
+                                 "בהצלחה!!";
+            ShowImage(imegeFainle);
         }
         else
         {

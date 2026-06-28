@@ -2836,6 +2836,7 @@ MonoBehaviour:
   popupImage: {fileID: 2145946121}
   speed50Sprite: {fileID: 21300000, guid: 643b138183577eb47a233e656661baf9, type: 3}
   navigationkeys: {fileID: 21300000, guid: 32deaf37d4261574ca4ce7b6edf7ed44, type: 3}
+  imegeFainle: {fileID: 21300000, guid: c9511a6d97b26a248a13e6f00fbdc06d, type: 3}
 --- !u!4 &561847904
 Transform:
   m_ObjectHideFlags: 0
@@ -6018,8 +6019,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 2, z: 4.5}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!114 &1255405953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6033,10 +6034,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarMovement
   maxSpeedKmh: 100
+  maxReverseKmh: 25
   accelKmhPerSec: 12
   brakeKmhPerSec: 25
+  reverseAccelKmhPerSec: 10
   coastKmhPerSec: 4
   turnSpeed: 120
+  wallTag: Wall
+  collisionImpactThreshold: 2
   move:
     m_Name: Move
     m_Type: 0
@@ -7487,7 +7492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpeedHUD_Medium
   speedText: {fileID: 1556093807}
   warningText: {fileID: 146618006}
-  carRigidbody: {fileID: 0}
+  carRigidbody: {fileID: 1255405950}
   speedLimitKmh: 50
 --- !u!4 &1588365151 stripped
 Transform:

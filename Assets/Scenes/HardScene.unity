@@ -786,6 +786,7 @@ GameObject:
   - component: {fileID: 36449621}
   - component: {fileID: 36449620}
   - component: {fileID: 36449619}
+  - component: {fileID: 36449624}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -865,6 +866,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &36449624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36449618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6909ade139711034bb0d5828b582a6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallHitPenalty
+  carRootTag: Player
+  reason: Ball hit
 --- !u!4 &39340918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4488567837450824, guid: 80c5916b9606ce646be16611d9a06d13, type: 3}
@@ -1461,7 +1476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpeedHUD_Medium
   speedText: {fileID: 94825859}
   warningText: {fileID: 469244206}
-  carRigidbody: {fileID: 0}
+  carRigidbody: {fileID: 449668028}
   speedLimitKmh: 50
 --- !u!114 &94825859
 MonoBehaviour:
@@ -1640,8 +1655,16 @@ PrefabInstance:
       value: Street 3 Prefab (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4040797355963638, guid: 2224b63330275e5478ef024b2913f937, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 201.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040797355963638, guid: 2224b63330275e5478ef024b2913f937, type: 3}
       propertyPath: m_LocalScale.y
       value: 198.23999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040797355963638, guid: 2224b63330275e5478ef024b2913f937, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0187
       objectReference: {fileID: 0}
     - target: {fileID: 4040797355963638, guid: 2224b63330275e5478ef024b2913f937, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8210,7 +8233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 20, y: -50}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &389490155
@@ -8233,7 +8256,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u05D1\u05D7\u05E8 \u05D0\u05EA \u05D4\u05DE\u05E1\u05DC\u05D5\u05DC \u05D4\u05E0\u05DB\u05D5\u05DF"
+  m_text: "\u05E8\u05E7 \u05D0\u05D7\u05D3 \u05DE\u05D4\u05DE\u05E1\u05DC\u05D5\u05DC\u05D9\u05DD
+    \u05E4\u05EA\u05D5\u05D7 \u2013 \u05D1\u05D7\u05E8 \u05D0\u05D5\u05EA\u05D5"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8298,7 +8322,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -178.9318, y: 0, z: -123.23978, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9756,7 +9780,7 @@ GameObject:
   - component: {fileID: 449668028}
   m_Layer: 0
   m_Name: car
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9823,8 +9847,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 2, z: 4.5}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!114 &449668031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9838,10 +9862,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarMovement
   maxSpeedKmh: 100
+  maxReverseKmh: 25
   accelKmhPerSec: 12
   brakeKmhPerSec: 25
+  reverseAccelKmhPerSec: 10
   coastKmhPerSec: 4
   turnSpeed: 120
+  wallTag: WALL
+  collisionImpactThreshold: 2
   move:
     m_Name: Move
     m_Type: 0
@@ -9899,8 +9927,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449668027}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 288, y: 1e-12, z: -175}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 288.00003, y: 0, z: -175.00006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27931,7 +27959,7 @@ Transform:
   m_GameObject: {fileID: 1429882881}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 40, z: 0}
+  m_LocalPosition: {x: 0, y: 49, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -27984,12 +28012,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7ca078f3391ad004d82ea6213bf30947, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 77668ba0432e58c40aaacdfa39d16f7f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.45, y: 2.2}
+  m_Size: {x: 2.3, y: 3.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -30828,7 +30856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1581137538
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40093,6 +40121,6 @@ SceneRoots:
   - {fileID: 1733921530}
   - {fileID: 170233559}
   - {fileID: 803000229}
-  - {fileID: 304170998}
   - {fileID: 449668032}
+  - {fileID: 304170998}
   - {fileID: 1427766044}
