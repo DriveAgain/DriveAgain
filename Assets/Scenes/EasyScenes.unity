@@ -40815,7 +40815,6 @@ GameObject:
   - component: {fileID: 2129085421}
   - component: {fileID: 2129085420}
   - component: {fileID: 2129085419}
-  - component: {fileID: 2129085425}
   - component: {fileID: 2129085424}
   m_Layer: 5
   m_Name: Canvas
@@ -40963,21 +40962,6 @@ MonoBehaviour:
   speed50Sprite: {fileID: 21300000, guid: 643b138183577eb47a233e656661baf9, type: 3}
   enterFromRightSprite: {fileID: 21300000, guid: cfe49503419d1084c882e2ac693ef39e, type: 3}
   navigationkeys: {fileID: 21300000, guid: 32deaf37d4261574ca4ce7b6edf7ed44, type: 3}
---- !u!114 &2129085425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129085417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3aaa325e7e4d04f8fff634af7f7567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PopupManager
-  panel: {fileID: 548215872}
-  messageText: {fileID: 1592042698}
-  okButton: {fileID: 229962611}
 --- !u!1001 &2131849800
 PrefabInstance:
   m_ObjectHideFlags: 0
