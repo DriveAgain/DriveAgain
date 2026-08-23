@@ -9,6 +9,10 @@ public class FinishLineLoader : MonoBehaviour
     [Header("Which level is this?")]
     [SerializeField] int completedLevelIndex = 0; // 0 Tutorial, 1 Easy, 2 Medium, 3 Hard
 
+    [Header("Time Bonus")]
+    [SerializeField] int bonusTimeLimit = 90; // 90 seconds = 1:30
+    [SerializeField] int timeBonus = 100;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name != carObjectName)
@@ -18,15 +22,27 @@ public class FinishLineLoader : MonoBehaviour
         GameState.CompletedLevelIndex = completedLevelIndex;
 
         StarManager sm = FindFirstObjectByType<StarManager>();
+
         if (sm != null)
         {
             GameState.Stars = sm.CurrentStars;
-            GameState.Reward = GameState.Stars * 100;
-        }
 
-        TimerHUD timer = FindFirstObjectByType<TimerHUD>();
-        if (timer != null)
-            GameState.TotalSeconds = timer.TotalSeconds;
+            // פרס בסיסי לפי כוכבים
+            GameState.Reward = GameState.Stars * 100;
+
+            // בונוס זמן
+            TimerHUD timer = FindFirstObjectByType<TimerHUD>();
+
+            if (timer != null)
+            {
+                GameState.TotalSeconds = timer.TotalSeconds;
+
+                if (GameState.TotalSeconds < bonusTimeLimit)
+                {
+                    GameState.Reward += timeBonus;
+                }
+            }
+        }
 
         SceneManager.LoadScene(nextSceneName);
     }

@@ -5,15 +5,16 @@ using UnityEngine.UI;
 public class IntroPopupEasy : MonoBehaviour
 {
     [Header("UI")]
-    [SerializeField] private GameObject panel;
-    [SerializeField] private TextMeshProUGUI messageText;
-    [SerializeField] private Button okButton;
-    [SerializeField] private Image introImage; // ה-Image ששמת בפאנל
+    [SerializeField]  GameObject panel;
+    [SerializeField]  TextMeshProUGUI messageText;
+    [SerializeField]  Button okButton;
+    [SerializeField]  Image introImage; // ה-Image ששמת בפאנל
 
     [Header("Sprites (Easy)")]
-    [SerializeField] private Sprite speed50Sprite;   // תמרור 50
-    [SerializeField] private Sprite enterFromRightSprite; // כניסה מצד ימין
-    [SerializeField] private Sprite navigationkeys;
+    [SerializeField]  Sprite speed50Sprite;   // תמרור 50
+    [SerializeField]  Sprite enterFromRightSprite; // כניסה מצד ימין
+    [SerializeField]  Sprite navigationkeys;
+    [SerializeField]  Sprite bonusSprite;  
 
     private int step = 0;
 
@@ -59,6 +60,14 @@ public class IntroPopupEasy : MonoBehaviour
         {
             messageText.text = "הכניסה לכיכר היא מצד ימין בלבד";
              ShowImage(enterFromRightSprite);
+        }
+         else if (step == 3)
+        {
+             messageText.text =
+                "בונוס זמן!\n" +
+                "אם תסיים את המסלול בפחות מדקה וחצי\n" +
+                "תקבל בונוס של 001 נקודות!";
+            ShowImage(bonusSprite);
         }
         else
         {

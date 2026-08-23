@@ -322,6 +322,7 @@ MonoBehaviour:
   introImage: {fileID: 1491396157}
   yieldSignSprite: {fileID: 21300000, guid: be627ceb049602842bcdd3134d1e1d5e, type: 3}
   yellowCarSprite: {fileID: 21300000, guid: 61a02ef7eb6d2944781ec08e02a5155a, type: 3}
+  bonusSprite: {fileID: 21300000, guid: 039163e018b77354f837b58a8ad3d321, type: 3}
 --- !u!114 &20211266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2214,7 +2215,7 @@ Transform:
   m_GameObject: {fileID: 140474070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.96, y: -0, z: -54.0434}
+  m_LocalPosition: {x: 6.06, y: -0, z: -56.63}
   m_LocalScale: {x: 8, y: 1, z: 5.200874}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10454,6 +10455,8 @@ MonoBehaviour:
   nextSceneName: SuccessScene
   carObjectName: car
   completedLevelIndex: 2
+  bonusTimeLimit: 90
+  timeBonus: 100
 --- !u!65 &664834027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25242,7 +25245,7 @@ Transform:
   m_GameObject: {fileID: 1478714428}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.89, y: 0, z: -9.77}
+  m_LocalPosition: {x: -31.98, y: 0, z: -9.27}
   m_LocalScale: {x: 8, y: 1, z: 4.4075665}
   m_ConstrainProportionsScale: 0
   m_Children: []

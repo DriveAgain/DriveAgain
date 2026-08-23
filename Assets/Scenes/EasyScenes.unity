@@ -2536,6 +2536,8 @@ MonoBehaviour:
   nextSceneName: SuccessScene
   carObjectName: car
   completedLevelIndex: 1
+  bonusTimeLimit: 90
+  timeBonus: 100
 --- !u!65 &130982229
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40962,6 +40964,7 @@ MonoBehaviour:
   speed50Sprite: {fileID: 21300000, guid: 643b138183577eb47a233e656661baf9, type: 3}
   enterFromRightSprite: {fileID: 21300000, guid: cfe49503419d1084c882e2ac693ef39e, type: 3}
   navigationkeys: {fileID: 21300000, guid: 32deaf37d4261574ca4ce7b6edf7ed44, type: 3}
+  bonusSprite: {fileID: 21300000, guid: 039163e018b77354f837b58a8ad3d321, type: 3}
 --- !u!1001 &2131849800
 PrefabInstance:
   m_ObjectHideFlags: 0
